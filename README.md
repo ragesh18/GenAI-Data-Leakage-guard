@@ -117,7 +117,112 @@ Python dependencies (via `requirements.txt`):
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/genai-dlp-guard.git
-cd genai-dlp-guard
+git clone https://github.com/ragesh18/GenAI-Data-Leakage-guard.git
 
- 
+cd genai-dlp-guard
+```
+### 2️⃣ Create and Activate Virtual Environment
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+### 3️⃣ Install Required Packages
+```bash
+pip3 install -r requirements.txt
+```
+
+## ▶️ Running the Project
+  - Step 1: Start the DLP Proxy Server
+```bash
+uvicorn app.proxy:app --reload
+```
+Expected output:
+```nginx
+Uvicorn running on http://127.0.0.1:8000
+```
+  - Step 2: Check Server Status
+Open in browser:
+```bash
+http://localhost:8000/health
+```
+Response:
+```bash
+{"status":"ok"}
+```
+- Step 3: Use API Documentation
+Open:
+```bash
+http://localhost:8000/docs
+```
+  - **Select POST /chat**
+  - **Click Try it out**
+
+Example input:
+```json
+{
+  "prompt": "My email is user@gmail.com please help me"
+}
+```
+- Step 4 (Optional): Use Client Demo
+In a new terminal:
+```bash
+source venv/bin/activate
+python client_demo.py
+```
+You can type prompts interactively.
+
+---
+
+Example Results
+## ✅ Allowed Prompt
+```pgsql
+Explain SQL Injection.
+```
+**Result**: Prompt allowed and response returned.
+
+## ⚠️ Masked Prompt
+```kotlin
+My email is test@gmail.com
+```
+**Result**: Email masked before processing.
+
+## ❌ Blocked Prompt
+```vbnet
+My API key is sk-123456SECRET
+```
+**Result**: Prompt blocked and warning shown.
+
+## 📄 Logging & Auditing
+All detected incidents are stored in:
+```bash
+logs/incidents.jsonl
+```
+Each log entry includes:
+  - Timestamp
+  - Action taken (ALLOW / MASK / BLOCK)
+  - Detection category
+  - Prompt snippet (partial text)
+
+---
+    
+## ✅ Advantages
+
+- Prevents accidental data leakage to GenAI tools
+
+- Implements real-world DLP concepts
+
+- Works locally (privacy-friendly)
+
+- Simple and extendable architecture
+
+- Ideal for academic and cybersecurity projects
+
+## ⚠️ Limitations
+
+- Rule-based detection may cause false positives
+
+- Text prompts only
+
+- GenAI response is simulated
+
+- Not production-hardened
