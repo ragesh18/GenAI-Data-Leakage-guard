@@ -1,0 +1,2 @@
+{"timestamp": "2025-12-07T13:19:06.990275Z", "action": "ALLOW", "prompt": "Explain what SQL Injection is.", "masked_prompt": null, "findings": []}
+{"timestamp": "2025-12-07T13:19:19.472293Z", "action": "MASK", "prompt": "My email is student123@gmail.com please help me write a message.", "masked_prompt": "My email is [*** MASKED:pii_email ***] please help me write a message.", "findings": [{"category": "pii_email", "severity": "medium", "match": "student123@gmail.com", "start": 12, "end": 32, "description": "Possible email address"}]}
