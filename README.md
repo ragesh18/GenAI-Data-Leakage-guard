@@ -1,6 +1,6 @@
 # **GenAI Data Leakage Guard (DLP Proxy) – Technical Documentation**
 *Version 0.1.0*
-*Last Updated: 2025-07-20*
+
 
 ---
 
