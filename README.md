@@ -245,7 +245,7 @@ MIT License (see `LICENSE` file).
 
 ---
 **Contributors**: Ragesh A
-**Contact**: offi.rexain@gmail.com | ragesh18
+**Contact**: rwgesha@gmail.com | ragesh18
 
 ---
 This documentation ensures developers can **quickly set up, extend, and deploy** the GenAI DLP Proxy while maintaining security best practices.
